@@ -3,7 +3,7 @@ import { ArrowLeft, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Footer } from "@/components/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 // Confetti component
@@ -44,11 +44,11 @@ const Confetti = () => {
             opacity: [1, 0.7, 0],
           }}
           transition={{
-            duration: 5 + Math.random() * 5,
+            duration: 2 + Math.random() * 3, // Faster animation (was 5 + Math.random() * 5)
             ease: "easeOut",
-            delay: Math.random() * 3,
-            repeat: Infinity,
-            repeatDelay: Math.random() * 10,
+            delay: Math.random() * 1, // Reduced delay (was Math.random() * 3)
+            repeat: 1, // Only repeat once instead of Infinity
+            repeatDelay: Math.random() * 2, // Faster repeat (was Math.random() * 10)
           }}
         />
       ))}
@@ -57,14 +57,24 @@ const Confetti = () => {
 };
 
 const ThankYou = () => {
-  // Scroll to top on page load
+  const [showConfetti, setShowConfetti] = useState(true);
+  
+  // Scroll to top on page load and handle confetti timing
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Hide confetti after 5 seconds
+    const timer = setTimeout(() => {
+      setShowConfetti(false);
+    }, 5000);
+    
+    // Clean up the timer on unmount
+    return () => clearTimeout(timer);
   }, []);
   
   return (
     <div className="min-h-screen flex flex-col bg-qmf-light-gray">
-      <Confetti />
+      {showConfetti && <Confetti />}
       
       <main className="flex-1 flex items-center justify-center py-16">
         <div className="bg-white rounded-lg shadow-md max-w-3xl w-full p-8">
