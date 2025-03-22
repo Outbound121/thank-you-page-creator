@@ -2,7 +2,6 @@
 import { ArrowLeft, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { FinanceHeader } from "@/components/FinanceHeader";
 import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
@@ -65,7 +64,6 @@ const ThankYou = () => {
   
   return (
     <div className="min-h-screen flex flex-col bg-qmf-light-gray">
-      <FinanceHeader />
       <Confetti />
       
       <main className="flex-1 flex items-center justify-center py-16">
