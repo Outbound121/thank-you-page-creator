@@ -1,5 +1,5 @@
 
-import { ArrowLeft, CheckCircle } from "lucide-react";
+import { CheckCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Footer } from "@/components/Footer";
@@ -99,11 +99,14 @@ const ThankYou = () => {
           </div>
           
           <div className="flex justify-center">
-            <Button asChild variant="outline" className="flex items-center">
-              <Link to="/">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Return to Home
-              </Link>
+            <Button 
+              asChild 
+              className="flex items-center bg-yellow-400 hover:bg-yellow-500 text-black font-medium px-6" 
+            >
+              <a href="tel:01132631214">
+                <Phone className="mr-2 h-4 w-4" />
+                Call Us Now: 0113 2631214
+              </a>
             </Button>
           </div>
         </div>
