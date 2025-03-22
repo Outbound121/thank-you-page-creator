@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -65,7 +64,9 @@ export default {
 				},
 				// Add the QMF colors
 				'qmf-purple': '#6B46C1', // Indigo/purple color
-				'qmf-light-gray': '#F5F5F7' // Light gray background
+				'qmf-light-gray': '#F5F5F7', // Light gray background
+				'qmf-dark-gray': '#1A1F2C', // Dark background for footer
+				'qmf-yellow': '#FEF7CD', // Yellow accent color for icons
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
