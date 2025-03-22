@@ -1,88 +1,55 @@
 
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { ArrowLeft, CheckCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { FinanceHeader } from "@/components/FinanceHeader";
+import { Footer } from "@/components/Footer";
+import { useEffect } from "react";
 
 const ThankYou = () => {
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  
   return (
-    <div className="min-h-screen w-full bg-white flex flex-col items-center justify-center px-4 py-20">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="w-full max-w-xl mx-auto"
-      >
-        <div className="text-center">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5, type: "spring" }}
-            className="mx-auto mb-8 flex justify-center"
-          >
-            <CheckCircle className="h-20 w-20 text-emerald-500" strokeWidth={1.5} />
-          </motion.div>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-sm uppercase tracking-wider text-zinc-500 mb-2"
-          >
-            Application Received
-          </motion.p>
-          
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-4xl md:text-5xl font-light mb-6 text-zinc-900"
-          >
-            Thank You
-          </motion.h1>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="mb-12 max-w-md mx-auto"
-          >
-            <p className="text-zinc-600 mb-4">
-              Your finance application has been submitted successfully. Our team will review your information and contact you shortly.
-            </p>
-            <p className="text-zinc-500 text-sm">
-              A confirmation email has been sent to the address you provided.
-            </p>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.6 }}
-          >
-            <Link
-              to="/"
-              className="inline-flex items-center justify-center rounded-md bg-zinc-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:ring-offset-2"
-            >
-              Return to Home
-            </Link>
-          </motion.div>
-        </div>
-      </motion.div>
+    <div className="min-h-screen flex flex-col bg-qmf-light-gray">
+      <FinanceHeader />
       
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-        className="mt-16 text-center text-zinc-400 text-sm"
-      >
-        <p>If you have any questions, please contact our support team.</p>
-      </motion.div>
+      <main className="flex-1 flex items-center justify-center py-16">
+        <div className="bg-white rounded-lg shadow-md max-w-3xl w-full p-8">
+          <div className="text-center mb-8">
+            <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+            <h1 className="text-3xl font-bold text-gray-800 mb-4">Thank You!</h1>
+            <p className="text-xl text-gray-600 mb-6">
+              Your application has been submitted successfully.
+            </p>
+            <div className="border-t border-gray-200 pt-6 max-w-xl mx-auto">
+              <p className="text-gray-600 mb-4">
+                One of our finance specialists will review your application and get back to you shortly.
+              </p>
+              <p className="text-gray-600 mb-6">
+                If you have any questions in the meantime, please don't hesitate to contact us at{" "}
+                <a href="tel:01132631214" className="text-qmf-purple font-medium hover:underline">
+                  0113 2631214
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+          
+          <div className="flex justify-center">
+            <Button asChild variant="outline" className="flex items-center">
+              <Link to="/">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Return to Home
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </main>
+      
+      <Footer />
     </div>
   );
 };

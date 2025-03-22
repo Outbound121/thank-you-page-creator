@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,10 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Add the QMF colors
+				'qmf-purple': '#6B46C1', // Indigo/purple color
+				'qmf-light-gray': '#F5F5F7' // Light gray background
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
